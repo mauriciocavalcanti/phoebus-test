@@ -6,7 +6,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import com.phoebus.pandemicaid.entity.ReportEntity;
 import com.phoebus.pandemicaid.entity.ResourceEntity;
+import com.phoebus.pandemicaid.repository.ReportRepository;
 import com.phoebus.pandemicaid.repository.ResourceRepository;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -36,13 +38,26 @@ public class SpringConfig {
   }
 
   @Bean
-  public ApplicationRunner initializer(ResourceRepository resourceRepository) {
-    return args -> resourceRepository
-        .saveAll(Arrays.asList(new ResourceEntity(Long.valueOf(1), "Médico", Integer.valueOf(3)),
-            new ResourceEntity(Long.valueOf(2), "Enfermeiro", Integer.valueOf(3)),
-            new ResourceEntity(Long.valueOf(3), "Respirador", Integer.valueOf(5)),
-            new ResourceEntity(Long.valueOf(4), "Tomógrafo", Integer.valueOf(12)),
-            new ResourceEntity(Long.valueOf(5), "Ambulância", Integer.valueOf(10))));
+  public ApplicationRunner initializer(ResourceRepository resourceRepository,
+      ReportRepository reportRepository) {
+    return args -> {
+      resourceRepository
+          .saveAll(Arrays.asList(new ResourceEntity(Long.valueOf(1), "Médico", Integer.valueOf(3)),
+              new ResourceEntity(Long.valueOf(2), "Enfermeiro", Integer.valueOf(3)),
+              new ResourceEntity(Long.valueOf(3), "Respirador", Integer.valueOf(5)),
+              new ResourceEntity(Long.valueOf(4), "Tomógrafo", Integer.valueOf(12)),
+              new ResourceEntity(Long.valueOf(5), "Ambulância", Integer.valueOf(10))));
+      reportRepository.saveAll(Arrays.asList(
+          new ReportEntity(Long.valueOf(1), "Porcentagem de hospitais com ocupação maior que 90%."),
+          new ReportEntity(Long.valueOf(2), "Porcentagem de hospitais com ocupação menor que 90%."),
+          new ReportEntity(Long.valueOf(3),
+              "Quantidade média de cada tipo de recurso por hospital (Ex: 2 tomógrafos por hospital)."),
+          new ReportEntity(Long.valueOf(4),
+              "Hospital em super-lotação (ocupação maior que 90%) a mais tempo."),
+          new ReportEntity(Long.valueOf(5),
+              "Hospital em abaixo de super-lotação (ocupação maior que 90%) a mais tempo."),
+          new ReportEntity(Long.valueOf(6), "Histórico de negociação.")));
+    };
 
   }
 
