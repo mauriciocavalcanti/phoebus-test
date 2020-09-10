@@ -1,13 +1,14 @@
 package com.phoebus.pandemicaid.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Fullness {
 
   private Long id;
-  private double percentage;
-  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm:ss")
+  private BigDecimal percentage;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
   private LocalDateTime date;
   private Hospital hospital;
 
@@ -19,11 +20,11 @@ public class Fullness {
     this.id = id;
   }
 
-  public double getPercentage() {
+  public BigDecimal getPercentage() {
     return percentage;
   }
 
-  public void setPercentage(double percentage) {
+  public void setPercentage(BigDecimal percentage) {
     this.percentage = percentage;
   }
 

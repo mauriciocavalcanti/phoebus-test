@@ -1,9 +1,13 @@
 package com.phoebus.pandemicaid.config;
 
+import java.util.Arrays;
 import javax.sql.DataSource;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import com.phoebus.pandemicaid.entity.ResourceEntity;
+import com.phoebus.pandemicaid.repository.ResourceRepository;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -29,6 +33,17 @@ public class SpringConfig {
     dataSource.setPassword("sa");
 
     return dataSource;
+  }
+
+  @Bean
+  public ApplicationRunner initializer(ResourceRepository resourceRepository) {
+    return args -> resourceRepository
+        .saveAll(Arrays.asList(new ResourceEntity(Long.valueOf(1), "Médico", Integer.valueOf(3)),
+            new ResourceEntity(Long.valueOf(2), "Enfermeiro", Integer.valueOf(3)),
+            new ResourceEntity(Long.valueOf(3), "Respirador", Integer.valueOf(5)),
+            new ResourceEntity(Long.valueOf(4), "Tomógrafo", Integer.valueOf(12)),
+            new ResourceEntity(Long.valueOf(5), "Ambulância", Integer.valueOf(10))));
+
   }
 
 }

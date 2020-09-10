@@ -44,17 +44,21 @@ public class HospitalEntity implements Serializable {
   private List<ExchangeEntity> exchanges2;
 
   // bi-directional many-to-one association to Fullness
-  @OneToMany(mappedBy = "hospital")
+  @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
   private List<FullnessEntity> fullnesses;
 
   // bi-directional many-to-one association to HospitalResource
-  @OneToMany(mappedBy = "hospital")
+  @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
   private List<HospitalResourceEntity> hospitalResources;
 
   @OneToMany(mappedBy = "hospital")
   private List<ExchangeResourceEntity> exchangeResources;
 
   public HospitalEntity() {}
+
+  public HospitalEntity(Long id) {
+    this.id = id;
+  }
 
   public Long getId() {
     return this.id;

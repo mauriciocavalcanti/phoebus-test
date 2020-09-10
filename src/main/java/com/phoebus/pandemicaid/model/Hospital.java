@@ -1,5 +1,6 @@
 package com.phoebus.pandemicaid.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Hospital {
@@ -8,6 +9,7 @@ public class Hospital {
   private String name;
   private String cnpj;
   private Address address;
+  private BigDecimal currentFullness;
   private List<Resource> resources;
   private List<Fullness> fullnesses;
 
@@ -57,6 +59,14 @@ public class Hospital {
 
   public void setFullnesses(List<Fullness> fullnesses) {
     this.fullnesses = fullnesses;
+  }
+
+  public BigDecimal getCurrentFullness() {
+    return currentFullness;
+  }
+
+  public void setCurrentFullness(BigDecimal currentFullness) {
+    this.currentFullness = currentFullness;
   }
 
 }
