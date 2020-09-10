@@ -2,7 +2,9 @@ package com.phoebus.pandemicaid.model;
 
 import java.math.BigDecimal;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Hospital {
 
   private Long id;

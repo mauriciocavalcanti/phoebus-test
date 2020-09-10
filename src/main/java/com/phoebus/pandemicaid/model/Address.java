@@ -1,5 +1,8 @@
 package com.phoebus.pandemicaid.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Address {
 
   private String neighborhood;
