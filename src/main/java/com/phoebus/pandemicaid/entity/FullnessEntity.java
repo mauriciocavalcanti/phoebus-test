@@ -33,12 +33,17 @@ public class FullnessEntity implements Serializable {
   private HospitalEntity hospital;
 
   public FullnessEntity() {}
+  
+  public FullnessEntity(BigDecimal percentage, LocalDateTime date) {
+    this.percentage = percentage;
+    this.date = date;
+  }
 
-  public long getId() {
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

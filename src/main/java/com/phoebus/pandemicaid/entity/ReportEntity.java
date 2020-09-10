@@ -26,11 +26,11 @@ public class ReportEntity implements Serializable {
 
   public ReportEntity() {}
 
-  public long getId() {
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

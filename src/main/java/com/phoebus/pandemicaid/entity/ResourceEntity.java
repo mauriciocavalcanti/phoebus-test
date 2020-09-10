@@ -26,11 +26,18 @@ public class ResourceEntity implements Serializable {
 
   public ResourceEntity() {}
 
-  public long getId() {
+  public ResourceEntity(Long id, String name, Integer weight) {
+    super();
+    this.id = id;
+    this.name = name;
+    this.weight = weight;
+  }
+
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
