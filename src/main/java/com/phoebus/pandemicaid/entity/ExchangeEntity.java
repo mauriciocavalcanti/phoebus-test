@@ -24,7 +24,7 @@ public class ExchangeEntity implements Serializable {
   private BigDecimal hospitalBFullness;
 
   // bi-directional many-to-one association to ExchangeResource
-  @OneToMany(mappedBy = "exchange")
+  @OneToMany(mappedBy = "exchange", cascade = CascadeType.ALL)
   private List<ExchangeResourceEntity> exchangeResourceEntities;
 
   // bi-directional many-to-one association to Hospital
