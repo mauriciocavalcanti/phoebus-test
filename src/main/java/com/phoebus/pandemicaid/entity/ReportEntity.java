@@ -26,6 +26,12 @@ public class ReportEntity implements Serializable {
 
   public ReportEntity() {}
 
+  public ReportEntity(Long id, String description) {
+    super();
+    this.id = id;
+    this.description = description;
+  }
+
   public Long getId() {
     return this.id;
   }
