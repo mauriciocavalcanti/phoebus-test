@@ -1,3 +1,21 @@
+# Projeto teste para Phoebus
+Considerações sobre o produzido:
+* Api está atendendo aos requisitos solicitados e listados abaixo.
+* Coverage de testes está em 81,7%, entretanto, qualidade dos mesmo não é das melhores.
+* Adição de validações, como de CNPJ, seriam interessantes para o futuro.
+* Utilização de um Error Handler do Spring também seria desejável.
+* A seção de relatórios, apesar de entregar o requisitado, não fica dentro dos padrões de API que considero aceitáveis, uma possível API só para relatórios seria, na minha opinião, mais aceitável.
+* Adição de logs em todas as etapas também deveria ter sido implementada.
+* Dockerização da aplicação também seria desejável.
+* O tempo pedido para desenvolvimento da solução foi justo, entretanto, minha falta de tempo pessoal impossibilitou priorizar as considerações supracitadas.
+
+## Detalhes da Solução:
+* Foi utilizado swagger para documentação da api, visualizar no http://localhost:8080/api/swagger-ui.html
+* Para rodar o projeto basta abrir o terminal na pasta do projeto e rodar o comando:
+```
+$ mvn clean install && mvn spring-boot:run
+```
+
 # Pandemic Combat Aid System
 
 ## Descrição do problema
